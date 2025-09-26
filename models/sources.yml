@@ -1,0 +1,65 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: This is a replica of the Postgres database used by our app
+    database: raw
+    schema: jaffle_shop
+    tables:
+      - name: customers
+        description: One record per customer.
+      - name: orders
+        description: One record per order. Includes cancelled and deleted orders.
+      - name: customer_csv  
+        description: CSV data loaded for customer import
+      - name: customer_sales
+        description: Sales data is here
+      - name: customer_ssis
+        description: The ssis data is here
+      - name: customer_input
+        description: The customer raw data is here
+      - name: currency_rate_sales
+        description: this is currency source data
+
+
+
+  - name: pc_dbt_db   # This is just a reference name for dbt
+    description: PC_DBT_DB staging data source
+    database: PC_DBT_DB
+    schema: DBT_SPETKAR
+    tables:
+      - name: stg_customer_mrg
+        description: Merged customer staging table from PC_DBT_DB
+
+  - name: dbt_1   # This is just a reference name for dbt
+    description: dbt_1 staging data source
+    database: dbt_1
+    schema: DBT_SAURABH
+    tables:
+      - name: CUSTOMER_CSV
+        description:  customer staging table 
+
+
+  - name: RAW_SOURCES   # This is just a reference name for dbt
+    description: raw_sources staging data source
+    database: RAW
+    schema: RAW_SOURCES
+    tables:
+      - name: product
+        description:  product staging table
+      - name: product_group
+        description:  product_group staging table
+      - name: product_line
+        description:  product_line staging table
+      - name: product_sub_group
+        description:  product_sub_group staging table
+      - name: product_2
+        description:  product staging table
+      - name: product_group_2
+        description:  product_group staging table
+      - name: product_line_2
+        description:  product_line staging table
+      - name: product_sub_group_2
+        description:  product_sub_group staging table
+      - name: forecasts
+        description:  forecasts staging table
