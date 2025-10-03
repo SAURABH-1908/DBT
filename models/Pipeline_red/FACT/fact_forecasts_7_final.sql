@@ -1,6 +1,6 @@
 {{
   config(
-    materialized='incremental',
+    materialized='table',
     unique_key=['product_code', 'customer_code', 'forecast_date']
   )
 }}
